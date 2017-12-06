@@ -32,11 +32,19 @@ Install miniasm and minimap2 and add them to your $PATH.
 `make`
 `cp minimap2 ~/bin/`
 
-Compare the two genomes using minimap2 and draw a synteny plot using minidot (included into the miniasm package).
+`git clone https://github.com/lh3/miniasm.git`
+`make`
+`cp minidot ~/bin/`
 
+Compare the two genomes using minimap2 and draw a synteny plot using minidot (included into the miniasm package).
 `minimap2 -xasm10 Sce.fasta Cgl.fasta > Sce_Cgl_asm10.paf`
 
 For more information about the meaning of the columns in the PAF output file of minimap2, see https://github.com/lh3/miniasm/blob/master/PAF.md.
+
+Use minidot to generate a dot plot:
+`minidot -m 10000 Sce_Cgl_asm10.paf > Sce_Cgl_asm10.eps`
+
+You can visualize the resulting EPS file using your favorite graphical program (e.g. Preview on OSX).
 
 Install the the package MCScanX and add it to your $PATH.
 
