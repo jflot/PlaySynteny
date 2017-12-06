@@ -60,7 +60,8 @@ As per the manual of MCScanX:
 `blastall -i Sce.prot -d Cgl.prot -p blastp -e 1e-10 -b 5 -v 5 -m 8 -o Sce_Clg_blastp`
 (this is using the older version of blast (the one suggested in the MCScanX manual); if your version is more recent the commandline will be slightly different).
 
-
+To run MCScan X you also need a gff file telling the position of each gene along each scaffold: you can get the one for C. glabrata from http://www.candidagenome.org/download/gff/C_glabrata_CBS138/C_glabrata_CBS138_current_features.gff
+and the one for S. cerevisiae from 
 
 
 
