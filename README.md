@@ -13,7 +13,7 @@ For instance:
 
 `export PATH=~/bin:$PATH`
 
-If you want this to become permanent (i.e. everytime you log into your account you get ~/bin added to your $PATH then you should add the line `export PATH=~/bin:$PATH` to the .bashrc or .profile file at the root of your account (if no such file exists yet, create one).
+If you want this to become permanent (i.e. everytime you log into your account you get ~/bin added to your $PATH then you should add the line `export PATH=~/bin:$PATH` to the .bashrc or .profile file at the root of your account; if no such file exists yet, create one).
 
 Download the genome and proteome of Saccharomyces cerevisiae (Sce) from https://www.yeastgenome.org/ and Candida glabrata (Cgl) from http://www.candidagenome.org.
 
@@ -28,15 +28,15 @@ Download the genome and proteome of Saccharomyces cerevisiae (Sce) from https://
 mv S288C_reference_sequence_R64-2-1_20150113.fsa Sce.fasta`
 
 Install miniasm and minimap2 and add them to your $PATH.
-`git clone https://github.com/lh3/minimap2.git
-make`
-
-
-
+`git clone https://github.com/lh3/minimap2.git`
+`make`
+`cp minimap2 ~/bin/`
 
 Compare the two genomes using minimap2 and draw a synteny plot using minidot (included into the miniasm package).
 
 `minimap2 -xasm10 Sce.fasta Cgl.fasta > Sce_Cgl_asm10.paf`
+
+For more information about the meaning of the columns in the PAF output file of minimap2, see https://github.com/lh3/miniasm/blob/master/PAF.md.
 
 Install the the package MCScanX and add it to your $PATH.
 
