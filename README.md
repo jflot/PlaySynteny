@@ -50,3 +50,17 @@ Install the the package MCScanX and add it to your $PATH.
 
 Perform a MCScanX synteny analysis comparing the two genomes, and an analysis of the different types of gene duplicates found in each genome.
 
+Download the proteome of C. glabrate: `wget http://www.candidagenome.org/download/sequence/C_glabrata_CBS138/current/C_glabrata_CBS138_current_orf_trans_all.fasta.gz`
+gunzip it
+rename it as e.g. Cgl.prot
+rename the proteome of S. cerevisiae as Sce.prot
+
+As per the manual of MCScanX:
+`formatdb -p T -i Cgl.prot`
+`blastall -i Sce.prot -d Cgl.prot -p blastp -e 1e-10 -b 5 -v 5 -m 8 -o Sce_Clg_blastp`
+(this is using the older version of blast (the one suggested in the MCScanX manual); if your version is more recent the commandline will be slightly different).
+
+
+
+
+
