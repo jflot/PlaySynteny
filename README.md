@@ -8,8 +8,10 @@ If you don't have it yet: create a folder in your $PATH in which you can put the
 
 For instance:
 `cd` 
+
 `mkdir bin`
-`export PATH=~/bin:$PATH``
+
+`export PATH=~/bin:$PATH`
 
 If you want this to become permanent (i.e. everytime you log into your account you get ~/bin added to your $PATH then you should add the line `export PATH=~/bin:$PATH` to the .bashrc or .profile file at the root of your account (if no such file exists yet, create one).
 
