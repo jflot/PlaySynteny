@@ -37,20 +37,40 @@ To display the alignment produced by minimap2 in a graphical fashion ("Oxford pl
 `cp minidot ~/bin/`
 
 
+## Basic commands
 
-Create a folder for this practical; cd into it.
+Align two genomes with minimap2 (authorizing up to 10% difference):
+`minimap2 -xasm10 genome1.fasta genome2.fasta > genome1_vs_genome2.paf`
+(for more info regaring the PAF alignment format, see https://github.com/lh3/miniasm/blob/master/PAF.md)
 
-Download the genome and proteome of Saccharomyces cerevisiae (Sce) from https://www.yeastgenome.org/ and Candida glabrata (Cgl) from http://www.candidagenome.org.
+Display a PAF alignment in a graphical way:
+`minidot -f 5 genome1_vs_genome2.paf > genome1_vs_genome2.eps`
 
-`wget https://downloads.yeastgenome.org/sequence/S288C_reference/genome_releases/S288C_reference_genome_Current_Release.tgz`
+If you are comparing a genome with itself, you should add the -X option "skip self and dual mappings":
+`minimap2 -xasm10 genome1.fasta genome1.fasta -X > genome1_vs_genome1.paf`
 
-`tar xvf S288C_reference_genome_Current_Release.tgz`
+You can then visualize the resulting EPS plot file using your favorite graphical program (e.g. Preview on OSX). If you have been working on a cluster and need to copy the eps file into your local computer to visualize it, you can get it using the command `scp`.
 
-`wget http://www.candidagenome.org/download/sequence/C_glabrata_CBS138/current/C_glabrata_CBS138_current_chromosomes.fasta.gz`
 
-`gunzip C_glabrata_CBS138_current_chromosomes.fasta.gz`
-`mv C_glabrata_CBS138_current_chromosomes.fasta Cgl.fasta
-mv S288C_reference_sequence_R64-2-1_20150113.fsa Sce.fasta`
+## Downloading and preparing the sequence data
+
+Download the assembled chromosomes from three strains of the baker's yeast *Saccharomyces cerevisiae*: S288C (the standard reference strain isolated years ago from a rotten fig, https://www.yeastgenome.org/) and Kyokai7 (a sake strain from Japan, https://doi.org/10.1093/dnares/dsr029). 
+
+For S288C, the genome is available from https://www.yeastgenome.org/ (go to "Sequence", "Reference Genome", "Download Genome" or use the direct link
+`wget https://downloads.yeastgenome.org/sequence/S288C_reference/genome_releases/S288C_reference_genome_Current_Release.tgz` (to uncompress such gzipped tar archive, use the commande `tar xvf`).
+
+For Kyokai7, go to https://www.ncbi.nlm.nih.gov/nuccore/?term=DG000037:DG000052[accn], choose "Send to", "Complete Record", "Choose Destination: File", "Format: FASTA" and "Sort by: Organism name" (so that the chromosome sequences are arranged in the proper order).
+
+Prior to further analyses, it is advisable to simplify the headers of each FASTA file by using e.g. the command `sed`. To visualize the headers of each fasta, you can use `grep '>'`. Ideally the final headers should be something like "S288C I", "S288C II", S288C III" etc. (or "Kyokai7 I", "Kyokai7 II" etc. for the other strain).
+
+Download the genome sequence from the bdelloid rotifer *Adineta vaga* using the link http://www.genoscope.cns.fr/adineta/data/Adineta_vaga_v2.0.scaffolds.fa.gz. Use the command `gunzip` to unzip the file. As this genome is quite fragmented, we will only keep the 50 largest scaffolds: first figure out the line number of the 51st scaffold using `grep -n`, then keep only the lines till that point using the command `head`. You can also use the `sed` command to shorten the names of the scaffolds (by removing "scaffold_" and the size information).
+
+## Practical questions
+
+Compare the genomes of S288C and Kyokai7 using minimap2, and display the resulting. How many structural differences of which type do you detect between the two genomes, and on which chromosome(s)?
+
+Compare the genome of the *Adineta vaga* with itself using minimap2. 
+
 
 
 Compare the two genomes using minimap2 and draw a synteny plot using minidot (included into the miniasm package).
