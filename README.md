@@ -1,8 +1,6 @@
 # PlaySynteny: a genome evolution practical
 
-Connect via ssh to the hydra cluster of ULB (hydra.ulb.ac.be)
-
-Create a folder for this practical; cd into it.
+## Preparing your work environment
 
 If you don't have it yet: create a folder in your $PATH in which you can put the programs that you want to be able to run from anywhere in your computer.
 
@@ -14,6 +12,33 @@ For instance:
 `export PATH=~/bin:$PATH`
 
 If you want this to become permanent (i.e. everytime you log into your account you get ~/bin added to your $PATH then you should add the line `export PATH=~/bin:$PATH` to the .bashrc or .profile file at the root of your account; if no such file exists yet, create one).
+
+
+## Installing the required programs
+
+We will be using two ways of comparing genomes and looking into genome duplications/rearrangements: the traditional (but cumbersome) way, which compares the inferred proteome of each genome and searches for series of protein-coding genes with homologues in the same order in several places in the annotated genome sequence; and the more direct (but less sensitive) way of comparing directly unannotated genome sequences with each other.
+
+For this we will be using two programs: MCScanX (https://academic.oup.com/nar/article/40/7/e49/1202057) by Yupeng Wang and minimap2 (https://arxiv.org/abs/1708.01492) by Heng Li.
+
+Installing minimap2 is relatively easy:
+
+`git clone https://github.com/lh3/minimap2.git`
+
+`make`
+
+`cp minimap2 ~/bin/` (or into any other folder of your $PATH)
+
+To display the alignment produced by minimap2 in a graphical fashion ("Oxford plot") we will need the minidot program from another package by the same author:
+
+`git clone https://github.com/lh3/miniasm.git`
+
+`make`
+
+`cp minidot ~/bin/`
+
+
+
+Create a folder for this practical; cd into it.
 
 Download the genome and proteome of Saccharomyces cerevisiae (Sce) from https://www.yeastgenome.org/ and Candida glabrata (Cgl) from http://www.candidagenome.org.
 
@@ -27,14 +52,6 @@ Download the genome and proteome of Saccharomyces cerevisiae (Sce) from https://
 `mv C_glabrata_CBS138_current_chromosomes.fasta Cgl.fasta
 mv S288C_reference_sequence_R64-2-1_20150113.fsa Sce.fasta`
 
-Install miniasm and minimap2 and add them to your $PATH.
-`git clone https://github.com/lh3/minimap2.git`
-`make`
-`cp minimap2 ~/bin/`
-
-`git clone https://github.com/lh3/miniasm.git`
-`make`
-`cp minidot ~/bin/`
 
 Compare the two genomes using minimap2 and draw a synteny plot using minidot (included into the miniasm package).
 `minimap2 -xasm10 Sce.fasta Cgl.fasta > Sce_Cgl_asm10.paf`
