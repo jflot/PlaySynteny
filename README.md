@@ -11,12 +11,12 @@ For instance:
 
 `export PATH=~/bin:$PATH`
 
-If you want this to become permanent (i.e. everytime you log into your account you get ~/bin added to your $PATH then you should add the line `export PATH=~/bin:$PATH` to the .bashrc or .profile file at the root of your account; if no such file exists yet, create one).
+If you want this to become permanent (i.e. everytime you log into your account you get ~/bin added to your $PATH) just add the line `export PATH=~/bin:$PATH` to the .bashrc or .profile file at the root of your account (if no such file exists yet, create one).
 
 
 ## Installing the required programs
 
-We will comparing genomes and looking into genome duplications/rearrangements. Instead of using the traditional (but cumbersome) way, which compares the inferred proteome of each genome and searches for series of protein-coding genes with homologues in the same order in several places in the annotated genome sequence, we will choose the more direct (but less sensitive) way of comparing directly unannotated genome sequences with each other. As this approach is less sensitive, it only allows detecting duplicates that are relatively recent.
+We will comparing genomes and looking into genome duplications/rearrangements. Instead of using the traditional (but cumbersome) way, which compares the inferred proteome of each genome and searches for series of protein-coding genes with homologues in the same order in several places in the annotated genome sequence, we will opt for the more direct (but less sensitive) way of comparing directly unannotated genome sequences with each other. As this approach is less sensitive, it only allows detecting duplicates that are relatively recent.
 
 For this we will be using minimap2 (https://arxiv.org/abs/1708.01492), a recent program by Heng Li.
 
