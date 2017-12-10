@@ -47,7 +47,7 @@ Display a PAF alignment in a graphical way:
 `minidot -f 5 -d genome1_vs_genome2.paf > genome1_vs_genome2.eps`
 
 If you are comparing a genome with itself, you should add the -X option "skip self and dual mappings":
-`minimap2 -xasm10 genome1.fasta genome1.fasta -X > genome1_vs_genome1.paf`. Then if you want to display also the self-hits on the same plot you can add `minimap2 -xasm10 genome1.fasta genome1.fasta >> genome1_vs_genome1.paf` (`>>` will append the self-hits at the bottome of the file instead of overwriting it).
+`minimap2 -xasm10 genome1.fasta genome1.fasta -X > genome1_vs_genome1.paf`. Then if you want to display also the self-hits on the same plot you can add `minimap2 -xasm10 genome1.fasta genome1.fasta >> genome1_vs_genome1.paf` (`>>` will append the self-hits at the bottom of the file instead of overwriting it).
 
 You can visualize the resulting EPS plot file using your favorite graphical program (e.g. Preview on OSX). If you have been working on a cluster and need to copy the EPS file into your local computer to visualize it, you can get it using the command `scp`, e.g. `scp [user@]host:file .`.
 
@@ -71,7 +71,7 @@ Compare the genomes of S288C and Kyokai7 using minimap2, and display the result.
 
 Compare the genomes of S288C and Kyokai7 with themselves using minimap2. What do you see? How do you interpret it?
 
-Now compare the genome of the bdelloid rotifer *Adineta vaga* with itself using minimap. What do you see? How do you interpret it?
+Now compare the 50 largest scaffold of the genome of the bdelloid rotifer *Adineta vaga* with themselves using minimap. What do you see? How do you interpret it?
 
 Hint: the genomes of S288C and Kyokai7 are haploid (as is the case for most published genome assemblies), whereas in the case of *Adineta vaga* a diploid assembly aimed at separating haplotypes was performed. Since *Adineta vaga* is asexual and reproduces mitotically, haplotypes do not recombine via meiosis and can be considered as duplicated genome regions.
 
