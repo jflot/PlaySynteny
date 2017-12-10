@@ -71,7 +71,7 @@ Compare the genomes of S288C and Kyokai7 using minimap2, and display the result.
 
 Compare the genomes of S288C and Kyokai7 with themselves using minimap2. What do you see? How do you interpret it?
 
-Now compare the 50 largest scaffold of the genome of the bdelloid rotifer *Adineta vaga* with themselves using minimap. What do you see? How do you interpret it?
+Now compare the 50 largest scaffolds of the genome of the bdelloid rotifer *Adineta vaga* with themselves using minimap. What do you see? How do you interpret it?
 
 Hint: the genomes of S288C and Kyokai7 are haploid (as is the case for most published genome assemblies), whereas in the case of *Adineta vaga* a diploid assembly aimed at separating haplotypes was performed. Since *Adineta vaga* is asexual and reproduces mitotically, haplotypes do not recombine via meiosis and can be considered as duplicated genome regions.
 
