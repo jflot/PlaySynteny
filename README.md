@@ -63,7 +63,7 @@ For Kyokai7, go to https://www.ncbi.nlm.nih.gov/nuccore/?term=DG000037:DG000052[
 
 Prior to further analyses, it is advisable to simplify the headers of each FASTA file by using e.g. the command `sed`. To visualize the headers of each fasta, you can use `grep '>'`. Ideally the final headers should be something like "S288C_I", "S288C_II", S288C_III" etc. (or "Kyokai7_I", "Kyokai7_II" etc. for the other strain).
 
-Download the genome sequence from the bdelloid rotifer *Adineta vaga* (http://dx.doi.org/10.1038/nature12326) using the link http://www.genoscope.cns.fr/adineta/data/Adineta_vaga_v2.0.scaffolds.fa.gz. Use the command `gunzip` to unzip the file. As this genome is quite fragmented, we will only keep the 50 largest scaffolds: first figure out the line number of the 51st scaffold using `grep -n`, then keep only the lines till that point using the command `head`. You can also use the `sed` command to shorten the names of the scaffolds (by removing "scaffold_" and the size information).
+Download the genome sequence from the bdelloid rotifer *Adineta vaga* (http://dx.doi.org/10.1038/nature12326) using the link http://www.genoscope.cns.fr/adineta/data/Adineta_vaga_v2.0.scaffolds.fa.gz. Use the command `gunzip` to unzip the file. In this FASTA file the scaffolds have been ordered by decreasing size, i.e. the first scaffold is the longest one and the last scaffold is the shortest one. As this genome is quite fragmented, we will only keep the 50 largest scaffolds: first figure out the line number of the 51st scaffold using `grep -n`, then keep only the lines till that point using the command `head`. You can also use the `sed` command to shorten the names of the scaffolds (by removing "scaffold_" and the size information).
 
 ## Practical questions
 
