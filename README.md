@@ -28,7 +28,7 @@ Installing minimap2 is relatively easy:
 
 `cp minimap2 ~/bin/` (or into any other folder of your $PATH)
 
-To display the alignment produced by minimap2 in a graphical fashion ("Oxford plot") we will need the minidot program from another package by the same author:
+To display the alignment produced by minimap2 in a graphical fashion ("dotplot") we will need the minidot program from another package by the same author:
 
 `git clone https://github.com/lh3/miniasm.git`
 
